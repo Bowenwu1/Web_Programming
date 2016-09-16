@@ -1,5 +1,5 @@
 body {
-    background-image: url(http://my.ss.sysu.edu.cn/wiki/download/attachments/7045968/background.png?version=1&modificationDate=1268896312000);
+    background-image: url(../picture/background.png);
     background-repeat: repeat;
     background-attachment: fixed;
     font-family: "Verdana", Tahoma, sans-serif;
@@ -9,7 +9,7 @@ body {
 }
 
 div#banner {
-    background-image: url(http://my.ss.sysu.edu.cn/wiki/download/attachments/7045968/bannerbackground.png?version=1&modificationDate=1268896312000);
+    background-image: url(../picture/bannerbackground.png);
     background-repeat: repeat-x;
     width: 100%;
     font-family: "Tahoma", Verdana, sans-serif;
@@ -21,6 +21,7 @@ h1#main_title {
     text-align: center;
     font-weight: bold;
     font-size: 24pt;
+    font-family: "Tahoma", Verdana, sans-serif;
 }
 
 div#main_content {
@@ -30,25 +31,53 @@ div#main_content {
     width: 800px;
 }
 
+div#all_comment {
+    width: 550px;
+}
+
+div#all_comment #banner {
+    background: url(../picture/rottenbackground.png) repeat-x;
+}
+
+div#all_comment span#percentage {
+    font-weight: bold;
+    font-size: 48pt;
+    color: red;
+    vertical-align: 20%;
+}
+
+div#all_comment span#person {
+    color: white;
+    vertical-align: 40%;
+}
+
 div#poster {
+    font-family: "Arial, sans-serif";
     float: right;
     width: 250px;
     height: 100%;
     background-color: #A2B964;
 }
 
+div#validator {
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+}
+
 div.comment {
     float: left;
-    border: 0.2em;
-    margin: 0.2cm;
+    width: 47%;
 }
 
 dl.introduction {
     margin: 0;
-    padding: 0;
+    padding: 10px;
 }
 
 .introduction dt {
+    padding-left: 1em;
+    padding-right: 1em;
     font-weight: bold;
     margin: 0;
     padding: 0;
@@ -61,20 +90,27 @@ dl.introduction {
 
 p.comment {
     width: 200px;
-    border: gray solid 2px;
-    margin: 10px;
+    border: gray solid;
+    border-width: 2px;
+    padding: 8px;
+    font: 8pt bold;
+    background-color: #E1D697;
 }
 
 p.comment img {
     float: left;
+    padding-right: 5px;
+    /*width: 35px;*/
 }
 
-p.user div.img {
-    width: 35px;
-	float: left;
+p.user img {
+    float: left;
+    padding: 5px;
 }
 
-p.user {}
+p.user {
+    font-style: italic;
+}
 
 .clear {
     clear: both;
@@ -82,6 +118,8 @@ p.user {}
 
 p#bottom {
     float: bottom;
-    background-color: green;
+    background-color: #A2B964;
     text-align: center;
+    padding: 5px;
+    margin: 0;
 }
