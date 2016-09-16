@@ -65,9 +65,30 @@ div#validator {
     right: 0px;
 }
 
-div.comment {
+div#left {
     float: left;
     width: 47%;
+    margin-left: 2%;
+}
+
+div.comment_left {
+    float: left;
+    width: 100%;
+    /* margin-left: 2%;
+    margin-right: 0;*/
+}
+
+div#right {
+    float: right;
+    width: 47%;
+    margin-right: 2%;
+}
+
+div.comment_right {
+    float: right;
+    width: 100%;
+    /* margin-left: 0;
+    margin-right: 2%;*/
 }
 
 dl.introduction {
@@ -89,12 +110,11 @@ dl.introduction {
 }
 
 p.comment {
-    width: 200px;
     border: gray solid;
     border-width: 2px;
-    padding: 8px;
     font: 8pt bold;
     background-color: #E1D697;
+    padding: 8px;
 }
 
 p.comment img {
@@ -105,11 +125,12 @@ p.comment img {
 
 p.user img {
     float: left;
-    padding: 5px;
+    padding-right: 5px;
 }
 
 p.user {
     font-style: italic;
+    margin: 0;
 }
 
 .clear {
