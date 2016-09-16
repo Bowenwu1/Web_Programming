@@ -1,0 +1,87 @@
+body {
+    background-image: url(http://my.ss.sysu.edu.cn/wiki/download/attachments/7045968/background.png?version=1&modificationDate=1268896312000);
+    background-repeat: repeat;
+    background-attachment: fixed;
+    font-family: "Verdana", Tahoma, sans-serif;
+    font-size: 8pt;
+    margin: 0;
+    padding: 0;
+}
+
+div#banner {
+    background-image: url(http://my.ss.sysu.edu.cn/wiki/download/attachments/7045968/bannerbackground.png?version=1&modificationDate=1268896312000);
+    background-repeat: repeat-x;
+    width: 100%;
+    font-family: "Tahoma", Verdana, sans-serif;
+    margin: 0px;
+    padding: 0px;
+}
+
+h1#main_title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 24pt;
+}
+
+div#main_content {
+    margin-left: auto;
+    margin-right: auto;
+    border: gray solid 4px;
+    width: 800px;
+}
+
+div#poster {
+    float: right;
+    width: 250px;
+    height: 100%;
+    background-color: #A2B964;
+}
+
+div.comment {
+    float: left;
+    border: 0.2em;
+    margin: 0.2cm;
+}
+
+dl.introduction {
+    margin: 0;
+    padding: 0;
+}
+
+.introduction dt {
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+}
+
+.introduction dd {
+    margin: 0 0 1em 0;
+    padding: 0;
+}
+
+p.comment {
+    width: 200px;
+    border: gray solid 2px;
+    margin: 10px;
+}
+
+p.comment img {
+    float: left;
+}
+
+p.user div.img {
+    width: 35px;
+	float: left;
+}
+
+p.user {}
+
+.clear {
+    clear: both;
+}
+
+p#bottom {
+    float: bottom;
+    background-color: green;
+    text-align: center;
+}

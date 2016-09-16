@@ -1,0 +1,68 @@
+/*Created by BowenWu
+  recipe.css*/
+
+
+body {
+    background-repeat: repeat;
+    background-image: url("http://courses.cs.washington.edu/courses/cse190m/09sp/homework/1/silverware.jpg");
+    background-attachment: fixed;
+}
+
+h1 {
+    font-size: 22pt;
+    font-weight: bold;
+    color: rgb(164, 164, 0);
+    text-align: center;
+    font-family: "Century Gothic", Futura, Verdana, sans-serif;
+    text-decoration: underline;
+    background-color: rgb(240, 240, 240);
+    /*letter-spacing: 0.2em;*/
+    /*too ugly!*/
+}
+
+h2 {
+    font-size: 18pt;
+    font-style : normal;
+    font-weight: normal;
+    color: rgb(164, 164, 0);
+    text-align: left;
+    font-family: "Century Gothic", Futura, Verdana, sans-serif;
+    text-decoration: underline;
+    background-color: rgb(240, 240, 240);
+    letter-spacing: 0.2em;
+    /*this is better*/
+}
+
+h3 {
+    font-size: 12pt;
+}
+ul {
+    font-family: "Georgia", Garamond, serif;
+    list-style-image:url("http://courses.cs.washington.edu/courses/cse190m/09sp/homework/1/pie_icon.gif");
+    font-size: 11pt;
+}
+p {
+    color : rgb(64, 64, 64);
+    font-family: Georgia, Garamond, serif;
+    font-size: 11pt;
+}
+
+hr {
+    color: rgb(240, 240, 240);
+}
+
+p.comment {
+    background-color: rgb(255, 255, 200);
+    font-family: arial, sans-serif;
+    font-style: italic;
+    font-size: 11pt;
+}
+
+a.amour {
+    color: rgb(164, 164, 0);
+}
+
+a.img {
+    text-decoration: none;
+    margin-top: 40px;
+}

@@ -1,0 +1,79 @@
+/*Created by BowenWu
+  index.css*/
+
+body {
+    font-family: cursive;
+    background-image: url(background.jpg);
+    background-attachment: fixed;
+}
+
+h1 {
+    font-size: 45pt;
+    text-align: center;
+    /**/
+    font-weight: 500;
+    color: rgb(255, 255, 255);
+    font-family: cursive;
+    /*letter-spacing: 0.2em;*/
+    /*too ugly!*/
+}
+
+h2 {
+    font-size: 30pt;
+    font-style : normal;
+    font-weight: normal;
+    color: rgb(164, 164, 0);
+    text-align: left;
+    /**/
+    text-decoration: underline;
+    background-color: rgb(240, 240, 240);
+    /*this is better*/
+}
+
+p {
+    color : rgb(64, 64, 64);
+    font-family: cursive, Georgia, Garamond, serif;
+    font-size: 14pt;
+}
+
+p.introduction {
+    text-align: right;
+    font-style: italic;
+    font-size: 20pt;
+    color: rgb(255, 255, 255);
+    /**/
+    position: relative;
+    right: 40px;
+}
+
+a {
+    font-size: 18pt;
+    color: rgb(164, 164, 0);
+    /*text-decoration: none;*/
+}
+
+hr {
+    color: rgb(240, 240, 240);
+}
+
+div.title {
+    background-color: dimgray;
+    border-radius: 15em;
+    width : 800px;
+    margin-left: auto;
+    margin-right: auto;
+    filter:alpha(opacity=50);
+    opacity : 0.8;
+}
+
+div.content {
+    background-image: url(http://courses.cs.washington.edu/courses/cse190m/09sp/homework/1/silverware.jpg);
+    /*background-image: url(img1.png);*/
+    background-repeat : no-repeat;
+    background-attachment: fixed;
+    background-color: rgb(255, 255, 255);
+    width: 1024px;
+    margin-left : auto;
+    margin-right : auto;
+    opacity : 0.8;
+}
