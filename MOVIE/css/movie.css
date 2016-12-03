@@ -1,17 +1,29 @@
+/* Created by BowenWu-15331310
+ * Movie.css
+ * Second Assignment
+ * 2016.09.16
+ */
 body {
     background-image: url(../picture/background.png);
     background-repeat: repeat;
     background-attachment: fixed;
-    font-family: "Verdana", Tahoma, sans-serif;
+    font-family: Verdana, Tahoma, sans-serif;
     font-size: 8pt;
     margin: 0;
     padding: 0;
 }
 
-div#banner {
+div#validator {
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+}
+
+div.banner {
     background-image: url(../picture/bannerbackground.png);
     background-repeat: repeat-x;
     width: 100%;
+    text-align: center;
     font-family: "Tahoma", Verdana, sans-serif;
     margin: 0px;
     padding: 0px;
@@ -31,116 +43,126 @@ div#main_content {
     width: 800px;
 }
 
-div#all_comment {
+div#main_content div#all_comment {
     width: 550px;
+    float: left;
 }
 
-div#all_comment #banner {
+div#main_content div#all_comment #banner {
     background: url(../picture/rottenbackground.png) repeat-x;
+    height: 83px;
+    vertical-align: bottom;
 }
-
-div#all_comment span#percentage {
+div#main_content div#all_comment div#banner img
+{
+    height: 83px;
+    vertical-align: bottom;
+}
+div#main_content div#all_comment span#percentage {
     font-weight: bold;
     font-size: 48pt;
     color: red;
-    vertical-align: 20%;
 }
 
-div#all_comment span#person {
+div#main_content div#all_comment span#person {
     color: white;
-    vertical-align: 40%;
+    
 }
 
-div#poster {
-    font-family: "Arial, sans-serif";
-    float: right;
-    width: 250px;
-    height: 100%;
-    background-color: #A2B964;
-}
-
-div#validator {
-    position: fixed;
-    bottom: 0px;
-    right: 0px;
-}
-
-div#left {
+/* User's comment style
+ * In order to fenlan
+ * add two more div
+ * div#left && div#right
+ */
+div#main_content div#all_comment div#left {
     float: left;
     width: 47%;
     margin-left: 2%;
 }
 
-div.comment_left {
-    float: left;
-    width: 100%;
-    /* margin-left: 2%;
-    margin-right: 0;*/
-}
-
-div#right {
+div#main_content div#all_comment div#right {
     float: right;
     width: 47%;
     margin-right: 2%;
 }
 
-div.comment_right {
-    float: right;
+div#main_content  div#all_comment div.comment
+{
     width: 100%;
-    /* margin-left: 0;
-    margin-right: 2%;*/
 }
-
-dl.introduction {
-    margin: 0;
-    padding: 10px;
-}
-
-.introduction dt {
-    padding-left: 1em;
-    padding-right: 1em;
-    font-weight: bold;
-    margin: 0;
-    padding: 0;
-}
-
-.introduction dd {
-    margin: 0 0 1em 0;
-    padding: 0;
-}
-
-p.comment {
+div#main_content  div#all_comment p.comment {
     border: gray solid;
     border-width: 2px;
-    font: 8pt bold;
     background-color: #E1D697;
     padding: 8px;
+    overflow: auto;
 }
 
-p.comment img {
+div#main_content  div#all_comment p.comment q
+{
+    font-family: Verdana, Tahoma, sans-serif;
+    font-weight: bold;
+    font-size: 8pt;
+}
+div#main_content  div#all_comment p.comment img {
     float: left;
     padding-right: 5px;
     /*width: 35px;*/
 }
+div#main_content  div#all_comment p.user {
+    margin-bottom: 3em;
+    overflow: auto;
+}
 
-p.user img {
+div#main_content  div#all_comment p.user img {
     float: left;
     padding-right: 5px;
 }
-
-p.user {
+div#main_content  div#all_comment p.user span.company {
     font-style: italic;
+}
+div#main_content div#poster {
+    font-family: Arial, sans-serif;
+    float: right;
+    width: 250px;
+    height: 100%;
+    background-color: #A2B964;
+    margin: 0;
+}
+/* definition list style */
+div#main_content div#poster dl.introduction {
+    /*margin: 0;
+    padding: 10px;*/
+    padding: 0;
+    font-family: Arial, sans-serif;
+    margin: 10px;
+}
+
+div#main_content div#poster dl.introduction dt {
+    /*padding-left: 1em;
+    padding-right: 1em;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;*/
+    font-weight: bold;
+}
+
+div#main_content div#poster dl.introduction dd {
+    margin-bottom: 1em;
+}
+
+div#main_content div#bottom
+{
+    background-color: #A2B964;
+    text-align: center;
+    clear: right;
+    padding: 5px;
     margin: 0;
 }
 
-.clear {
-    clear: both;
-}
-
-p#bottom {
-    float: bottom;
-    background-color: #A2B964;
+div#main_content div#bottom p
+{
     text-align: center;
-    padding: 5px;
+    padding: 0;
     margin: 0;
 }

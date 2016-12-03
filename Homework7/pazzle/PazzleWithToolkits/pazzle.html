@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="./css/pazzle.css">
+        <title>拼图游戏</title>
+    </head>
+
+    <body>
+        <h1>拼图游戏</h1>
+        <div class="container">
+            <div id="pazzle-container" class="imgPanda"></div>
+            <div class="control-box">
+                <button id="start-button">开始游戏</button>
+                <button id="auto-recovery">一键还原</button>
+                <br />
+                <p>选择难度：</p>
+                <select id="difficulties-selector">
+                    <option id="easy" name="简单" value="easy">简单</option>
+                    <option id="middle" name="中等" value="middle">中等</option>
+                    <option id="hard" name="超难" value="hard">超难</option>
+                </select>
+                <p>选择图片：</p>
+                <select id="img-selector">
+                    <option id="panda" name="panda" value="panda">panda</option>
+                    <option id="Star" name="Star" value="Star">Star</option>
+                    <option id="Water" name="Water" value="Water">Water</option>
+                </select>
+            </div>
+
+            <div id="demo" class="imgPanda"></div>
+            <div class="info-bar">
+                    <p>所花时间 :<span id="time"></span></p>
+                    <p>所用步数 :<span id="step"></span></p>
+            </div>
+        </div>
+        <!-- <script src = https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.js></script> -->
+        <script type="text/javascript" src="./js/jQuery.js"></script>
+        <script src="./js/pazzleCounter.js"></script>
+        <script src="./js/pazzle.js"></script>
+    </body>

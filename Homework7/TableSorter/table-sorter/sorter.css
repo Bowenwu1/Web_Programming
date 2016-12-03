@@ -1,0 +1,56 @@
+body {
+	font-family: Arial, sans-serif;
+}
+
+.shadow {
+	width: 500px;
+	box-shadow: 10px 10px 5px #888888;
+	padding-bottom: 50px;
+	padding-top: 20px;
+	padding-left: 20px;
+	padding-right: 50px;
+}
+h1 {
+	font-weight: bold;
+	font-size: 20pt;
+}
+
+h2 {
+	font-weight: bold;
+	font-size: 20pt;
+}
+
+table {
+	border: 1px rgba(150, 150, 150, 0.5) solid;
+	border-collapse: collapse;
+}
+
+td, th {
+	border: 1px rgba(150, 150, 150, 0.5) solid;
+	min-width: 140px;
+	text-align: left;
+}
+
+th {
+	background-color: #021b7e;
+	font: bold 10pt;
+	color: white;
+}
+
+tr:nth-child(even) {
+	background-color: #dbdddb;
+}
+/* style for thead */
+.ascend {
+	background-color: #a4affc;
+	background-image: url("./ascend.png");
+	background-position: right;
+	background-repeat: no-repeat;
+}
+
+.descend {
+	background-color: #a4affc;
+	background-image: url("./descend.png");
+	background-position: right;
+	background-repeat: no-repeat;
+}

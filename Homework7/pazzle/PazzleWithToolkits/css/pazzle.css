@@ -1,0 +1,173 @@
+
+h1 {
+    text-align: center;
+    font-size: 30pt;
+}
+.imgPanda, .imgPanda > div {
+    background-image: url("../img/panda.jpg");
+}
+.imgStar, .imgStar > div {
+    background-image: url("../img/Star.jpg");
+}
+.imgWater, .imgWater > div {
+    background-image: url("../img/Water.jpg");
+}
+.container {
+    width: 352px;
+    position: absolute;
+    left: calc(50% - 176px);
+}
+.info-bar {
+    width: 150px;
+    position: absolute;
+    left: 505px;
+    top: 193px;
+}
+.info-bar p {
+    color: white;
+    background: blue;
+    padding: 5px;
+    border-radius: 10%;
+    margin: 5px;
+}
+#demo {
+    background-size: 176px 176px;
+    width: 88px;
+    width: 176px;
+    height: 176px;
+    position: absolute;
+    left: calc(352px + 30px);
+}
+#pazzle-container {
+    width: 352px;
+    height: 352px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    border: 1px solid rgba(150, 150, 150, 0.5);
+    background: white;
+}
+
+.control-box {
+    width: 200px;
+    position: absolute;
+    top: calc(176px + 20px);
+    left: calc(352px + 30px);
+}
+
+#start-button, #auto-recovery {
+    color: white;
+    background-color: blue;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10%;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* 拼图所需的class */
+
+/* 总体style */
+#pazzle-container > div {
+    background-size: 352px 352px;
+    width: 88px;
+    height: 88px;
+    -webkit-transition: all 0.1s;
+    -moz-transition: all 0.1s;
+    transition: all 0.1s;
+    position: absolute;
+    border: 1px solid rgba(150, 150, 150, 0.5);
+}
+#pazzle-container > div:hover {
+    transform: scale(1.05);
+    /*-webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;*/
+}
+
+/* 每块的背景位置 */
+/* 第一行 */
+#img00 {
+    background-position: 0 0;
+}
+#img01 {
+    background-position: -88px 0;
+}
+#img02 {
+    background-position: -176px 0;
+}
+#img03 {
+    background-position: -264px 0;
+}
+/* 第二行 */
+#img10 {
+    background-position: 0 -88px;
+}
+#img11 {
+    background-position: -88px -88px;
+}
+#img12 {
+    background-position: -176px -88px;
+}
+#img13 {
+    background-position: -264px -88px;
+}
+/* 第三行 */
+#img20 {
+    background-position: 0 -176px;
+}
+#img21 {
+    background-position: -88px -176px;
+}
+#img22 {
+    background-position: -176px -176px;
+}
+#img23 {
+    background-position: -264px -176px;
+}
+/* 第四行 */
+#img30 {
+    background-position: 0 -264px;
+}
+#img31 {
+    background-position: -88px -264px;
+}
+#img32 {
+    background-position: -176px -264px;
+}
+#img33 {
+    background: white !important;
+    opacity: 0;
+}
+#img33:hover {
+    transform: scale(1) !important;
+}
+/* 拼图定位class */
+/* 总共8个， 通过行列的组合得出定位 */
+/* 行 */
+.row0 {
+    top: 0;
+}
+.row1 {
+    top: 88px;
+}
+.row2 {
+    top: 176px;
+}
+.row3 {
+    top: 264px;
+}
+
+/* 列 */
+.col0 {
+    left: 0;
+}
+.col1 {
+    left: 88px;
+}
+.col2 {
+    left: 176px;
+}
+.col3 {
+    left: 264px;
+}
