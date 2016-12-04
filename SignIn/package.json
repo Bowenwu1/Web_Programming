@@ -1,0 +1,14 @@
+{
+  "name": "signin",
+  "version": "1.0.0",
+  "description": "a simple sign up and sign in application",
+  "main": "server/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Bob",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}
