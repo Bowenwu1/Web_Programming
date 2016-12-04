@@ -10,25 +10,32 @@ var type = require("./types").types;
 var validator = new (require("./Validator"))(storage);
 var page = require("./page");
 
-http.createServer(function (request, response) {
-	var pathname = url.parse(request.url).pathname;
-	console.log("request from" + pathname);
-	if (request.method.toLowerCase() == 'post' && pathname == "/submit") {
-		// post路由 返回详情
-		submitHandler(request, response);
-	} else if (pathname == "/" || pathname == "") {
-		// 初始路由
-		indexHandler(request, response);
-	} else if (request.method.toLowerCase() == 'post' && pathname == "/query") {
-		// AJAX 查询用户是否合法
-		queryHandler(request, response);
-	} else {
-		// 文件路由
-		staticFileRequestHandler(request, response);
-	}
-}).listen(8000);
-
-console.log("Server is running!");
+// http.createServer(function (request, response) {
+// 	var pathname = url.parse(request.url).pathname;
+// 	console.log("request from" + pathname);
+// 	if (request.method.toLowerCase() == 'post' && pathname == "/submit") {
+// 		// post路由 返回详情
+// 		submitHandler(request, response);
+// 	} else if (pathname == "/" || pathname == "") {
+// 		// 初始路由
+// 		indexHandler(request, response);
+// 	} else if (request.method.toLowerCase() == 'post' && pathname == "/query") {
+// 		// AJAX 查询用户是否合法
+// 		queryHandler(request, response);
+// 	} else {
+// 		// 文件路由
+// 		staticFileRequestHandler(request, response);
+// 	}
+// }).listen(8000);
+var express = require("express");
+var app = express();
+app.get("/submit", submitHandler);
+app.get("/", indexHandler);
+app.get("", indexHandler);
+app.get("/query", queryHandler);
+app.listen(8000, function() {
+	console.log("Server is running!");
+})
 
 function submitHandler(request, response) {
 	var post = '';
