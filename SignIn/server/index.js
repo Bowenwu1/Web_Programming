@@ -29,10 +29,11 @@ var page = require("./page");
 // }).listen(8000);
 var express = require("express");
 var app = express();
-app.get("/submit", submitHandler);
+app.post("/submit", submitHandler);
 app.get("/", indexHandler);
 app.get("", indexHandler);
-app.get("/query", queryHandler);
+app.post("/query", queryHandler);
+app.use(express.static('.'));
 app.listen(8000, function() {
 	console.log("Server is running!");
 })
