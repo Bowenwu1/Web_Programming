@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" type="text/css" href="../css/index.css">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="../dist/css/bootstrap.min.css" rel="stylesheet">
+	</head>
+
+	<body>
+        <h1>登陆</h1>
+        <form method="POST" action="/login" id="login" role="form">
+            <div class="form-group">
+                <label for="userName">用户名</label>
+                <input type="text" name="userName" id="userName" class="form-control" placeholder="userName">
+                <span id="loginUserNameInfo" class="info-bar help-block"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="passWord">密码</label>
+                <input type="password" name="passWord" id="passWord" class="form-control" placeholder="passWord">
+                <span id="loginPassWordInfo" class="info-bar help-block"></span>
+            </div>
+            <span class="help-block"></span>
+            <input type="submit" value="登陆" class="btn btn-success">
+            <button type="button" class="btn btn-default">还未注册？点此注册</button>
+        </form>
+		<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+        <script src="../dist/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../js/index.js"></script>
+	</body>
+

@@ -8,7 +8,7 @@ exports.show404Page = function(response) {
 };
 
 exports.showIndexPage = function(response) {
-	fs.readFile('./html/index.html', 'utf-8', function(err, data) {
+	fs.readFile('./html/regist.html', 'utf-8', function(err, data) {
 		if (err) page.show404Page(response);
 		else {
 			response.writeHead(200, {'content-type':'text/html'});

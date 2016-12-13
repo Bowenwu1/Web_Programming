@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" type="text/css" href="../css/index.css">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="../dist/css/bootstrap.min.css" rel="stylesheet">
+	</head>
+
+	<body>
+		<h1>注册</h1>
+		<form method="POST" action="/submit" id="submit" role="form">
+			<div class="form-group">
+				<label for="userName">用户名</label>
+				<input type="text" name="userName" id="userName" class="form-control" placeholder="Enter name">
+				<p id="userNameInfo" class="info-bar help-block"></p>
+			</div>
+
+			<div class="form-group">
+				<label for="userNumber">学号</label>
+				<input type="text" name="userNumber" id="userNumber" class="form-control" placeholder="Enter number">
+			<p id="userNumberInfo" class="info-bar help-block"></p>
+			</div>
+
+			<div class="form-group">
+				<label for="userPhone">手机号</label>
+				<input type="text" name="userPhone" id="userPhone" class="form-control" placeholder="Enter Phone">
+				<p id="userPhoneInfo" class="info-bar help-block"></p>
+			</div>
+
+			<div class="form-group">
+				<label for="userEmail">邮件</label>
+				<input type="text" name="userEmail" id="userEmail" class="form-control" placeholder="Enter Email">
+				<p id="userEmailInfo" class="info-bar help-block"></p>
+			</div>
+
+			<div class="form-group">
+				<label for="passWord">密码</label>
+				<input type="password" name="passWord" id="userEmail" class="form-control" placeholder="Enter passWord">
+				<p id="passWordInfo" class="info-bar help-block"></p>
+			</div>
+
+			<div class="form-group">
+				<label for="confirmPassWord">密码</label>
+				<input type="confirmPassWord" name="confirmPassWord" id="userEmail" class="form-control" placeholder="Enter passWord">
+				<p id="passWordInfo" class="info-bar help-block"></p>
+			</div>
+			<input type="submit" value="注册" class="btn btn-success">
+			<input type="reset" value="重置" class="btn btn-default">
+		</form>
+		<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+    	<script src="../dist/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../js/index.js"></script>
+	</body>
+</html>
