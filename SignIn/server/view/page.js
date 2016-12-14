@@ -8,7 +8,7 @@ exports.show404Page = function(response) {
 };
 
 exports.showIndexPage = function(response) {
-	fs.readFile('./html/regist.html', 'utf-8', function(err, data) {
+	fs.readFile('./html/login.html', 'utf-8', function(err, data) {
 		if (err) page.show404Page(response);
 		else {
 			response.writeHead(200, {'content-type':'text/html'});
@@ -16,7 +16,15 @@ exports.showIndexPage = function(response) {
 		}
 	});
 };
-
+exports.showRegistPage = function(response) {
+	fs.readFile("./html/regist.html", 'utf-8', function(err, data) {
+		if (err) page.show404Page(response);
+		else {
+			response.writeHead(200, {'content-type':'text/html'});
+			response.end(data);
+		}
+	});
+}
 exports.showDetailPage = function(response, user) {
 	fs.readFile('./html/detail.html', 'utf-8', function(err, data) {
 		if (err) page.show404Page(response);

@@ -1,4 +1,4 @@
-function User(userName, userNumber, userPhone, userEmail) {
+function User(userName, userNumber, userPhone, userEmail, userPassword) {
 	var Name = userName;
 	var _Number = userNumber;
 	var Phone = userPhone;
@@ -8,6 +8,7 @@ function User(userName, userNumber, userPhone, userEmail) {
 	this.userNumber = userNumber;
 	this.userPhone = userPhone;
 	this.userEmail = userEmail;
+	this.userPassword = userPassword;
 	this.getName = function() {
 		return Name;
 	}
