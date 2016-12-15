@@ -1,10 +1,12 @@
 (function() {
-	var legal = [false, false, false, false];
+	var legal = [false, false, false, false, false, false];
 	var namePattern = new RegExp(/^[a-zA-Z](\w){5,17}$/);
 	// var emailPattern = new RegExp(/^[a-zA-Z_\-]+@(([a-zA-Z_\-])+\.)+[a-zA-Z]{2,4}$/);
 	var emailPattern = new RegExp(/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/);
 	var numberPattern = new RegExp(/^[1-9][0-9]{7}$/);
 	var phonePattern = new RegExp(/^[1-9][0-9]{10}$/);
+	// passwordPattern here !!!
+	var passwordPattern = new RegExp();
 
 	document.getElementById("userName").onchange = function() {
 		if (!namePattern.test(this.value)) {
@@ -105,6 +107,26 @@
 		xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 		xmlhttp.send("userEmail=" + this.value);
 	}
+	document.getElementById("userPassword").onchange = function() {
+		if (!passwordPattern.test(this.value)) {
+			document.getElementById("passwordInfo").innerHTML = "密码格式不正确！";
+			legal[4] = false;
+			return;
+		} else {
+			document.getElementById("passwordInfo").innerHTML = "";
+			legal[4] = true;
+		}
+	};
+	document.getElementById("confimePassword").onchange =  function() {
+		if (this.value != document.getElementById("userPassword").value) {
+			document.getElementById("confimePasswordInfo").innerHTML = "两次输入的密码不一致！";
+			legal[5] = false;
+			return;	
+		} else {
+			document.getElementById("confimePasswordInfo").innerHTML = "";
+			legal[5] = true;
+		}
+	};
 	document.getElementById("submit").onsubmit = function() {
 		for (var i in legal)
 			if (!legal[i]) return false;
