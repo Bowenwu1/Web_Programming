@@ -19,6 +19,9 @@ app.get("/", handler.indexHandler);
 app.get("", handler.indexHandler);
 app.get("/regist", handler.registHandler);
 app.post("/query", handler.queryHandler);
+app.post("/loginquery", handler.loginQueryHandler);
+// loginquery
+// login
 app.use(express.static('.'));
 app.use(cookieParser());
 app.listen(8000, function() {

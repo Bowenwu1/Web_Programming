@@ -13,6 +13,7 @@ function handler(storage, validator, page) {
                     (validator.checkNumber(data['userNumber'])) &&
                     (validator.checkPhone(data['userPhone'])) );
     }.bind(this);
+
     this.submitHandler = function(request, response) {
         var post = '';
         request.on('data', function(chunk) {
@@ -21,7 +22,8 @@ function handler(storage, validator, page) {
         request.on('end', function() {
             post = queryString.parse(post);
             if (this.checkWhetherSubmitDataIsValid(post)) {
-                storage.createUser(post["userName"], post["userNumber"], post["userPhone"], post['userEmail']);
+                storage.createUser(post["userName"], post["userNumber"], post["userPhone"],
+                post['userEmail'], post['password']);
                 page.showIndexPage(response);
             } else {
                 page.show400Page(response);
@@ -63,26 +65,19 @@ function handler(storage, validator, page) {
             else response.end("repeated");
         });
     }
-
-    this.staticFileRequestHandler = function(request, response, pathname) {
-        var pathname = url.parse(request.url).pathname;
-        var contentType = getContentType(pathname);
-            fs.readFile("." + pathname, function(err, data) {
-                if (err) {
-                    page.show404Page(response);
-                } else {
-                    response.writeHead(200, {"content-type":contentType});
-                    response.end(data);
-                }
-            });
-    }
-
-    this.getContentType = function(pathname) {
-        var postFix = path.extname(pathname);
-        postFix = postFix?postFix.slice(1):"unknown";
-        var contentType = type[postFix] || "text/plain";
-        return contentType;
-    }
+    this.loginQueryHandler = function(request, response) {
+        var post = '';
+        request.on('data', function(chunk) {
+            post += chunk;
+        });
+        request.on('end', function() {
+            response.writeHead(200, {'content-type':'text/plain'});
+            console.log(post);
+            var queryUser = storage.queryUser(post);
+            if (queryUser == undefined) response.end("fail");
+            else response.end("loginsuccess");
+        });
+    };
 }
 
 module.exports = handler;
