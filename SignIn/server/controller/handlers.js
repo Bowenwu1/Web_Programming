@@ -78,6 +78,13 @@ function handler(storage, validator, page) {
             else response.end("loginsuccess");
         });
     };
+    this.checkCookie = function(request, response, next) {
+        console.log("in checkCookie middleware");
+        console.log(request.headers.cookie);
+        console.log(typeof request.headers.cookie);
+        if (!request.cookies) next();
+        else response.end();
+    }.bind(this);
 }
 
 module.exports = handler;

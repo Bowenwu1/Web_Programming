@@ -14,6 +14,7 @@ var cookieParser = require("cookie-parser");
 var app = express();
 var handler = new (require("./controller/handlers"))(storage, validator, page);
 
+app.use(handler.checkCookie);
 app.post("/submit", handler.submitHandler);
 app.get("/", handler.indexHandler);
 app.get("", handler.indexHandler);

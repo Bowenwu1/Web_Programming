@@ -51,12 +51,18 @@
         xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xmlhttp.send(sendMassage);
     }
-
+    function writeCookie() {
+        $.cookie("userName", $("#userName").value(), {expires: 7});
+        $.cookie("password", $("#password").value(), {expires: 7});
+    }
     document.getElementById("submit").onsubmit = function() {
         if (whetherPasswordCorrect && whetherUserNameLegal) {
             writeCookie();
             return true;
         }
         return false;
+    }
+    document.getElementById("regist").onclick = function() {
+        window.location.href = "http://localhost:8000/regist";
     }
 })();
