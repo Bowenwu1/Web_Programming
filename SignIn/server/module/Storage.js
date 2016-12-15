@@ -4,9 +4,10 @@ function Storage() {
 	// private:
 	var userList = new Array();
 
-	this.createUser = function(userName, userNumber, userPhone, userEmail) {
-		userList.push(new user(userName, userNumber, userPhone, userEmail));
-		console.log(userList.length);
+	this.createUser = function(userName, userNumber, userPhone, userEmail, password) {
+		console.log("new user has been created !");
+		userList.push(new user(userName, userNumber, userPhone, userEmail, password));
+		console.log(new user(userName, userNumber, userPhone, userEmail, password));
 	};
 
 	/* if the user is already existed, return this user
@@ -64,6 +65,7 @@ function Storage() {
 		if (property == 'userNumber') return true;
 		if (property == 'userPhone') return true;
 		if (property == 'userEmail') return true;
+		if (property == 'password') return true;
 		return false;
 	}
 }

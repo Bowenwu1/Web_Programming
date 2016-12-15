@@ -117,13 +117,13 @@
 			legal[4] = true;
 		}
 	};
-	document.getElementById("confimePassword").onchange =  function() {
+	document.getElementById("confirmPassword").onchange =  function() {
 		if (this.value != document.getElementById("userPassword").value) {
-			document.getElementById("confimePasswordInfo").innerHTML = "两次输入的密码不一致！";
+			document.getElementById("confirmPasswordInfo").innerHTML = "两次输入的密码不一致！";
 			legal[5] = false;
 			return;	
 		} else {
-			document.getElementById("confimePasswordInfo").innerHTML = "";
+			document.getElementById("confirmPasswordInfo").innerHTML = "";
 			legal[5] = true;
 		}
 	};

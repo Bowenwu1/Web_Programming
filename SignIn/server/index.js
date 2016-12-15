@@ -14,6 +14,8 @@ var cookieParser = require("cookie-parser");
 var app = express();
 var handler = new (require("./controller/handlers"))(storage, validator, page);
 
+app.use(cookieParser());
+app.use(express.static('.'));
 app.use(handler.checkCookie);
 app.post("/submit", handler.submitHandler);
 app.get("/", handler.indexHandler);
@@ -21,10 +23,9 @@ app.get("", handler.indexHandler);
 app.get("/regist", handler.registHandler);
 app.post("/query", handler.queryHandler);
 app.post("/loginquery", handler.loginQueryHandler);
+app.post("/login", handler.loginHandler);
 // loginquery
 // login
-app.use(express.static('.'));
-app.use(cookieParser());
 app.listen(8000, function() {
 	console.log("Server is running!");
 })

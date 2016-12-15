@@ -25,6 +25,15 @@ exports.showRegistPage = function(response) {
 		}
 	});
 }
+exports.showLogInFailPage = function(response) {
+	fs.readFile('./html/login.html', 'utf-8', function(err, data) {
+		if (err) page.show404Page(response);
+		else {
+			response.writeHead(200, {'content-type':'text/html'});
+			response.end(data);
+		}
+	});
+}
 exports.showDetailPage = function(response, user) {
 	fs.readFile('./html/detail.html', 'utf-8', function(err, data) {
 		if (err) page.show404Page(response);

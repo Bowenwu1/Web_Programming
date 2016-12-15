@@ -8,7 +8,7 @@ function User(userName, userNumber, userPhone, userEmail, userPassword) {
 	this.userNumber = userNumber;
 	this.userPhone = userPhone;
 	this.userEmail = userEmail;
-	this.userPassword = userPassword;
+	this.password = userPassword;
 	this.getName = function() {
 		return Name;
 	}

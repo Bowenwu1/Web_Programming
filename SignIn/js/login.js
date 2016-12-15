@@ -40,6 +40,8 @@
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                 var text = xmlhttp.responseText;
                 if (text == "loginsuccess") {
+                    alert("loginsuccess");
+                    document.getElementById("loginPasswordInfo").innerHTML = "";
                     whetherPasswordCorrect = true;
                 } else {
                     whetherPasswordCorrect = false;
@@ -51,12 +53,24 @@
         xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xmlhttp.send(sendMassage);
     }
-    function writeCookie() {
-        $.cookie("userName", $("#userName").value(), {expires: 7});
-        $.cookie("password", $("#password").value(), {expires: 7});
+    function deleteCookie() {
+        alert("deleteCookie");
+        $.cookie("userName", "");
+        $.cookie("password", "");
     }
-    document.getElementById("submit").onsubmit = function() {
+    function writeCookie() {
+        alert("writeCookie");
+        $.cookie("userName", $("#userName").val(), {expires: 7});
+        $.cookie("password", $("#password").val(), {expires: 7});
+    }
+    document.getElementById("login").onsubmit = function() {
+        alert("onsubmit");
+        $("#userName").change();
+        $("#password").change();
+        // bug fix
+        // problem of asys
         if (whetherPasswordCorrect && whetherUserNameLegal) {
+            deleteCookie();
             writeCookie();
             return true;
         }

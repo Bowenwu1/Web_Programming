@@ -4,14 +4,17 @@ var path = require("path");
 var url = require("url");
 var util = require("util");
 var queryString = require("querystring");
-function handler(storage, validator, page) {
+function handler(s, v, p) {
+    this.storage = s;
+    this.validator = v;
+    this.page = p;
     this.checkWhetherSubmitDataIsValid = function(data) {
-            if (!validator.whetherContainAllProperty(data))
+            if (!this.validator.whetherContainAllProperty(data))
                 return false;
-            return ((validator.checkName(data['userName'])) &&
-                    (validator.checkEmail(data['userEmail'])) &&
-                    (validator.checkNumber(data['userNumber'])) &&
-                    (validator.checkPhone(data['userPhone'])) );
+            return ((this.validator.checkName(data['userName'])) &&
+                    (this.validator.checkEmail(data['userEmail'])) &&
+                    (this.validator.checkNumber(data['userNumber'])) &&
+                    (this.validator.checkPhone(data['userPhone'])) );
     }.bind(this);
 
     this.submitHandler = function(request, response) {
@@ -22,34 +25,49 @@ function handler(storage, validator, page) {
         request.on('end', function() {
             post = queryString.parse(post);
             if (this.checkWhetherSubmitDataIsValid(post)) {
-                storage.createUser(post["userName"], post["userNumber"], post["userPhone"],
+                this.storage.createUser(post["userName"], post["userNumber"], post["userPhone"],
                 post['userEmail'], post['password']);
-                page.showIndexPage(response);
+                this.page.showIndexPage(response);
             } else {
-                page.show400Page(response);
+                this.page.show400Page(response);
             }
         }.bind(this));
     }.bind(this);
-
+    this.loginHandler = function(request, response) {
+        var post = '';
+        request.on('data', function(chunk) {
+            post += chunk;
+        });
+        request.on('end', function() {
+            post = queryString.parse(post);
+            var user = this.storage.queryUser(post);
+            if (user == undefined) {
+                // login fail
+                this.page.showLogInFailPage(response);
+            } else {
+                this.page.showDetailPage(response,user);
+            }
+        }.bind(this));
+    }.bind(this);
     this.indexHandler = function(request, response) {
         var info = queryString.parse(url.parse(request.url).query);
         var infoSize = Object.getOwnPropertyNames(info).length;
         if (!infoSize) {
-            page.showIndexPage(response);
+            this.page.showIndexPage(response);
         } else {
-            var post = storage.queryUser(info);
+            var post = this.storage.queryUser(info);
             console.log("after queryUser");
             console.log(post);
             if (!post) {
-                    page.showIndexPage(response);
+                    this.page.showIndexPage(response);
             } else {
-                page.showDetailPage(response, post);
+                this.page.showDetailPage(response, post);
             }
         }
-    }
+    }.bind(this);
     this.registHandler = function(request, response) {
-        page.showRegistPage(response);
-    }
+        this.page.showRegistPage(response);
+    }.bind(this);
     this.queryHandler = function(request, response) {
         var post = '';
         request.on('data', function(chunk) {
@@ -60,30 +78,37 @@ function handler(storage, validator, page) {
             // 没有校验post中的所有属性是否为user的合法属性
             console.log(post);
             response.writeHead(200, {'content-type':'text/plain'});
-            var queryUser = storage.queryUser(post);
+            var queryUser = this.storage.queryUser(post);
             if (queryUser == undefined) response.end("true");
             else response.end("repeated");
-        });
-    }
+        }.bind(this));
+    }.bind(this);
     this.loginQueryHandler = function(request, response) {
+        console.log("on loginQueryHandler");
         var post = '';
         request.on('data', function(chunk) {
             post += chunk;
         });
+        var that = this;
         request.on('end', function() {
             response.writeHead(200, {'content-type':'text/plain'});
             console.log(post);
-            var queryUser = storage.queryUser(post);
+            post = queryString.parse(post);
+            var queryUser = this.storage.queryUser(post);
             if (queryUser == undefined) response.end("fail");
             else response.end("loginsuccess");
-        });
-    };
+        }.bind(that));
+    }.bind(this);
     this.checkCookie = function(request, response, next) {
         console.log("in checkCookie middleware");
-        console.log(request.headers.cookie);
-        console.log(typeof request.headers.cookie);
-        if (!request.cookies) next();
-        else response.end();
+        console.log(request.url);
+        var cookie = request.cookies;
+        console.log(cookie);
+        // var userName = cookie['userName'];
+        // var password = cookie['password'];
+        // console.log(userName);
+        // console.log(password);
+        next();
     }.bind(this);
 }
 
