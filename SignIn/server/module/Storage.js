@@ -1,12 +1,46 @@
 var user = require("./User.js");
 
 function Storage() {
-	// private:
 	var userList = new Array();
+	var MongoClient = require('mongodb').MongoClient,
+		assert = require('assert');
+	var dbUrl = "mongodb://localhost:27017/signin";
+	MongoClient.connect(dbUrl, function(err, db) {
+		console.log("connected correctly to mongoDB");
+		var collection = db.collection('signin');
+		collection.find({}).toArray(function(err, docs) {
+				console.log("find all records");
+				console.dir(docs);
+				userList = docs;
+			});
+			db.close();
+	})
+	// private:
+	var insertUser = function(user) {
+		MongoClient.connect(dbUrl, function(err, db) {
+			assert.equal(null, err);
+			console.log("connected correctly to mongoDB");
+			console.log("ready to insert a user");
+			var collection = db.collection('signin');
+			collection.insertMany([user], function(err, result) {
+				if (err)
+					console.log("insert user fail");
+				else
+					console.log("insert user success");
+			})
+			collection.find({}).toArray(function(err, docs) {
+				console.log("find all records");
+				console.dir(docs);
+				userList = docs;
+			});
+			db.close();
+		});
+	}
 
 	this.createUser = function(userName, userNumber, userPhone, userEmail, password) {
 		console.log("new user has been created !");
-		userList.push(new user(userName, userNumber, userPhone, userEmail, password));
+		insertUser(new user(userName, userNumber, userPhone, userEmail, password));
+		// userList.push(new user(userName, userNumber, userPhone, userEmail, password));
 		console.log(new user(userName, userNumber, userPhone, userEmail, password));
 	};
 
@@ -15,25 +49,25 @@ function Storage() {
 	 */
 	this.queryUserByName = function(userName) {
 		for (var x in userList) {
-			if (userList[x].getName() == userName)
+			if (userList[x].userName == userName)
 				return userList[x];
 		}
 	}
 	this.queryUserByNumber = function(userNumber) {
 		for (var x in userList) {
-			if (userList[x].getNumber() == userNumber)
+			if (userList[x].userNumber == userNumber)
 				return userList[x];
 		}	
 	}
 	this.queryUserByEmail = function(userEmail) {
 		for (var x in userList) {
-			if (userList[x].getEmail() == userEmail)
+			if (userList[x].userEmail == userEmail)
 				return userList[x];
 		}	
 	}
 	this.queryUserByPhone = function(userPhone) {
 		for (var x in userList) {
-			if (userList[x].getPhone() == userPhone)
+			if (userList[x].userPhone == userPhone)
 				return userList[x];
 		}	
 	}
