@@ -32,6 +32,7 @@
         sendMassage += "userName=" + document.getElementById("userName").value;
         sendMassage += "&password=" + document.getElementById("password").value;
         $.post("/loginquery", sendMassage, function(text) {
+            alert(text);
             if (text == "loginsuccess") {
                     console.log("loginsuccess");
                     document.getElementById("loginPasswordInfo").innerHTML = "";
@@ -41,7 +42,8 @@
                     writeCookie();
                 } else {
                     whetherPasswordCorrect = false;
-                    document.getElementById("loginPasswordInfo").innerHTML = "密码不正确";
+                    $("#loginPasswordInfo").html("错误的用户名或密码");
+                    // document.getElementById("loginPasswordInfo").innerHTML = "错误的用户名或密码";
                 }
         });
     });
@@ -49,6 +51,9 @@
         $.cookie("userName", "");
         $.cookie("password", "");
     }
+    $("#login").submit(function() {
+        return false;
+    });
     function writeCookie() {
         $.cookie("userName", $("#userName").val(), {expires: 7});
         $.cookie("password", $("#password").val(), {expires: 7});
