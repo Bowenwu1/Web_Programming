@@ -10,3 +10,7 @@ p {
 	margin-right: auto;
 	padding-left: 70px;
 }
+
+#warning {
+	color: red;
+}

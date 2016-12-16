@@ -28,6 +28,7 @@
             $("#userName").change();
             return;
         }
+        deleteCookie();
         var sendMassage = "";
         sendMassage += "userName=" + document.getElementById("userName").value;
         sendMassage += "&password=" + document.getElementById("password").value;

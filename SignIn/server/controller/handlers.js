@@ -46,7 +46,7 @@ function handler(s, v, p) {
                 console.log("log in fail");
                 this.page.showLogInFailPage(response);
             } else {
-                this.page.showDetailPage(response,user);
+                this.page.showDetailPage(request, response,user);
             }
         }.bind(this));
     }.bind(this);
@@ -62,7 +62,7 @@ function handler(s, v, p) {
             if (!post) {
                     this.page.showIndexPage(response);
             } else {
-                this.page.showDetailPage(response, post);
+                this.page.showDetailPage(request, response, post);
             }
         }
     }.bind(this);
@@ -106,7 +106,7 @@ function handler(s, v, p) {
         var obj = {userName : cookie['userName'], password : cookie['password']};
         var user = this.storage.queryUser(obj);
         if (user) {
-            this.page.showDetailPage(response, user);
+            this.page.showDetailPage(request, response, user);
         } else {
             console.log("no legal cookie");
             return next();
