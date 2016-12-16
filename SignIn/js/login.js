@@ -23,24 +23,28 @@
                 }
         });
 	}
-
-    document.getElementById("password").onchange = function() {
-        if (!whetherUserNameLegal) return false;
+    $("#submit").click(function() {
+        if (!whetherUserNameLegal) {
+            $("#userName").change();
+            return;
+        }
         var sendMassage = "";
         sendMassage += "userName=" + document.getElementById("userName").value;
         sendMassage += "&password=" + document.getElementById("password").value;
         $.post("/loginquery", sendMassage, function(text) {
             if (text == "loginsuccess") {
+                    console.log("loginsuccess");
                     document.getElementById("loginPasswordInfo").innerHTML = "";
                     whetherPasswordCorrect = true;
+                    window.location.href = "http://localhost:8000"
+                    deleteCookie();
+                    writeCookie();
                 } else {
                     whetherPasswordCorrect = false;
                     document.getElementById("loginPasswordInfo").innerHTML = "密码不正确";
                 }
         });
-    }
-    $("#userName").change();
-    $("#password").change();
+    });
     function deleteCookie() {
         $.cookie("userName", "");
         $.cookie("password", "");
@@ -48,14 +52,6 @@
     function writeCookie() {
         $.cookie("userName", $("#userName").val(), {expires: 7});
         $.cookie("password", $("#password").val(), {expires: 7});
-    }
-    document.getElementById("login").onsubmit = function() {
-        if (whetherPasswordCorrect && whetherUserNameLegal) {
-            deleteCookie();
-            writeCookie();
-            return true;
-        }
-        return false;
     }
     document.getElementById("regist").onclick = function() {
         window.location.href = "http://localhost:8000/regist";

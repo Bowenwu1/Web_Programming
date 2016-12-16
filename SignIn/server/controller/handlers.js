@@ -43,6 +43,7 @@ function handler(s, v, p) {
             var user = this.storage.queryUser(post);
             if (user == undefined) {
                 // login fail
+                console.log("log in fail");
                 this.page.showLogInFailPage(response);
             } else {
                 this.page.showDetailPage(response,user);
@@ -102,12 +103,12 @@ function handler(s, v, p) {
     this.checkCookie = function(request, response, next) {
         console.log("in checkCookie middleware");
         var cookie = request.cookies;
-        if (!cookie) return next();
         var obj = {userName : cookie['userName'], password : cookie['password']};
         var user = this.storage.queryUser(obj);
         if (user) {
             this.page.showDetailPage(response, user);
         } else {
+            console.log("no legal cookie");
             return next();
         }
         // var userName = cookie['userName'];
