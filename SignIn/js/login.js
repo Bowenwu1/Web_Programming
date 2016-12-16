@@ -33,7 +33,6 @@
         sendMassage += "userName=" + document.getElementById("userName").value;
         sendMassage += "&password=" + document.getElementById("password").value;
         $.post("/loginquery", sendMassage, function(text) {
-            alert(text);
             if (text == "loginsuccess") {
                     console.log("loginsuccess");
                     document.getElementById("loginPasswordInfo").innerHTML = "";
