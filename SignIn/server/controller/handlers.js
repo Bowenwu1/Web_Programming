@@ -116,6 +116,9 @@ function handler(s, v, p) {
         // console.log(userName);
         // console.log(password);
     }.bind(this);
+    this.errorHandler = function(request, response) {
+        this.page.show404Page(response);
+    }.bind(this);
 }
 
 module.exports = handler;

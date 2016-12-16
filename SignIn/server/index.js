@@ -19,11 +19,11 @@ app.use(express.static('.'));
 app.use(handler.checkCookie);
 app.post("/submit", handler.submitHandler);
 app.get("/", handler.indexHandler);
-app.get("", handler.indexHandler);
 app.get("/regist", handler.registHandler);
 app.post("/query", handler.queryHandler);
 app.post("/loginquery", handler.loginQueryHandler);
 app.post("/login", handler.loginHandler);
+app.get("*", handler.errorHandler);
 // loginquery
 // login
 app.listen(8000, function() {
