@@ -6,7 +6,6 @@ var util = require("util");
 var queryString = require("querystring");
 /* My Module */
 var storage = new (require("./module/Storage"))();
-var type = require("./types").types;
 var validator = new (require("./module/Validator"))(storage);
 var page = require("./view/page");
 var express = require("express");
