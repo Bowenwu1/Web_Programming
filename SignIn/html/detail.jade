@@ -1,0 +1,21 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    link(rel='stylesheet', type='text/css', href='../css/detail.css')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(href='../dist/css/bootstrap.min.css', rel='stylesheet')
+  body
+    h1 详情
+    .info
+      p 用户名：#{userName}
+      p 学号：#{userNumber}
+      p 手机：#{userPhone}
+      p 邮箱：#{userEmail}
+      p#warning #{warning}
+      button#logout.btn.btn-danger(type='button') 退出登录
+    script(src='../js/jquery-3.1.1.min.js')
+    script(src='../dist/js/bootstrap.min.js')
+    script(src='../js/jquery.cookie.js')
+    script(src='../js/logout.js')

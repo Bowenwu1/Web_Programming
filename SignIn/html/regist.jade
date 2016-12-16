@@ -1,0 +1,40 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    link(rel='stylesheet', type='text/css', href='../css/index.css')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(href='../dist/css/bootstrap.min.css', rel='stylesheet')
+  body
+    h1 注册
+    form#submit(method='POST', action='/submit', role='form')
+      .form-group
+        label(for='userName') 用户名
+        input#userName.form-control(type='text', name='userName', placeholder='Enter name')
+        p#userNameInfo.info-bar.help-block
+      .form-group
+        label(for='userNumber') 学号
+        input#userNumber.form-control(type='text', name='userNumber', placeholder='Enter number')
+        p#userNumberInfo.info-bar.help-block
+      .form-group
+        label(for='userPhone') 手机号
+        input#userPhone.form-control(type='text', name='userPhone', placeholder='Enter Phone')
+        p#userPhoneInfo.info-bar.help-block
+      .form-group
+        label(for='userEmail') 邮件
+        input#userEmail.form-control(type='text', name='userEmail', placeholder='Enter Email')
+        p#userEmailInfo.info-bar.help-block
+      .form-group
+        label(for='passWord') 密码
+        input#userPassword.form-control(type='password', name='password', placeholder='Enter passWord')
+        p#passwordInfo.info-bar.help-block
+      .form-group
+        label(for='confirmPassWord') 确认密码
+        input#confirmPassword.form-control(type='password', name='confirmPassword', placeholder='Confirm passWord')
+        p#confirmPasswordInfo.info-bar.help-block
+      input.btn.btn-success(type='submit', value='注册')
+      input.btn.btn-default(type='reset', value='重置')
+    script(src='http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js')
+    script(src='../dist/js/bootstrap.min.js')
+    script(type='text/javascript', src='../js/regist.js')

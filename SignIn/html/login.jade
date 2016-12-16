@@ -1,0 +1,26 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    link(rel='stylesheet', type='text/css', href='../css/index.css')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(href='../dist/css/bootstrap.min.css', rel='stylesheet')
+  body
+    h1 登陆
+    form#login(method='POST', action='/login', role='form')
+      .form-group
+        label(for='userName') 用户名
+        input#userName.form-control(type='text', name='userName', placeholder='userName')
+        span#userNameInfo.info-bar.help-block
+      .form-group
+        label(for='password') 密码
+        input#password.form-control(type='password', name='password', placeholder='passWord')
+        span#loginPasswordInfo.info-bar.help-block
+      span.help-block
+      button#submit.btn.btn-success 登陆
+      button#regist.btn.btn-default(type='button') 还未注册？点此注册
+    script(src='../js/jquery-3.1.1.min.js')
+    script(src='../js/jquery.cookie.js')
+    script(src='../dist/js/bootstrap.min.js')
+    script(type='text/javascript', src='../js/login.js')
