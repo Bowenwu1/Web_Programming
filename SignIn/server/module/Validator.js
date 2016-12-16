@@ -5,6 +5,7 @@ function Validator(s) {
 	var emailPattern = new RegExp(/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/);
 	var numberPattern = new RegExp(/^[1-9][0-9]{7}$/);
 	var phonePattern = new RegExp(/^[1-9][0-9]{10}$/);
+	var passwordPattern = new RegExp(/^[0-9a-zA-Z\_-]{6,12}$/);
 	this.checkName = function(name) {
 		if (!namePattern.test(name))
 			return false;
@@ -32,6 +33,9 @@ function Validator(s) {
 		if (storage.queryUserByPhone(phone))
 			return false;
 		return true;
+	}
+	this.checkPassword = function(password) {
+		return passwordPattern.test(password);
 	}
 	this.whetherContainAllProperty = function(data) {
 		if (undefined == data['userName']) return false;

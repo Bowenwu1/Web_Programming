@@ -6,7 +6,7 @@
 	var numberPattern = new RegExp(/^[1-9][0-9]{7}$/);
 	var phonePattern = new RegExp(/^[1-9][0-9]{10}$/);
 	// passwordPattern here !!!
-	var passwordPattern = new RegExp();
+	var passwordPattern = new RegExp(/^[0-9a-zA-Z\_-]{6,12}$/);
 
 	document.getElementById("userName").onchange = function() {
 		if (!namePattern.test(this.value)) {

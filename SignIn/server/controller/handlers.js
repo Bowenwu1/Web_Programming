@@ -14,7 +14,8 @@ function handler(s, v, p) {
             return ((this.validator.checkName(data['userName'])) &&
                     (this.validator.checkEmail(data['userEmail'])) &&
                     (this.validator.checkNumber(data['userNumber'])) &&
-                    (this.validator.checkPhone(data['userPhone'])) );
+                    (this.validator.checkPhone(data['userPhone'])) &&
+                    this.validator.checkPassword(data['password']) );
     }.bind(this);
 
     this.submitHandler = function(request, response) {
