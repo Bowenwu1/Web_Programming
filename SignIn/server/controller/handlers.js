@@ -101,14 +101,19 @@ function handler(s, v, p) {
     }.bind(this);
     this.checkCookie = function(request, response, next) {
         console.log("in checkCookie middleware");
-        console.log(request.url);
         var cookie = request.cookies;
-        console.log(cookie);
+        if (!cookie) return next();
+        var obj = {userName : cookie['userName'], password : cookie['password']};
+        var user = this.storage.queryUser(obj);
+        if (user) {
+            this.page.showDetailPage(response, user);
+        } else {
+            return next();
+        }
         // var userName = cookie['userName'];
         // var password = cookie['password'];
         // console.log(userName);
         // console.log(password);
-        next();
     }.bind(this);
 }
 
