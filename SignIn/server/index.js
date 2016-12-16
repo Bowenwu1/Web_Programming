@@ -15,7 +15,7 @@ var app = express();
 var handler = new (require("./controller/handlers"))(storage, validator, page);
 
 app.set('view engine', 'jade');
-app.set('views', '../html/');
+app.set('views', __dirname + "/../html/");
 app.use(cookieParser());
 app.use(express.static('.'));
 app.use(handler.checkCookie);
