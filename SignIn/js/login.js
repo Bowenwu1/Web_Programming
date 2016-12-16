@@ -13,22 +13,6 @@
             whetherUserNameLegal = true;
 			document.getElementById("userNameInfo").innerHTML = "";
 		}
-		// var xmlhttp = new XMLHttpRequest();
-		// xmlhttp.onreadystatechange = function() {
-		// 	if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-		// 		var text = xmlhttp.responseText;
-		// 		if (text != "repeated") {
-		// 			document.getElementById("userNameInfo").innerHTML = "该用户不存在！";
-        //             whetherUserNameLegal = false;
-        //         } else {
-		// 			document.getElementById("userNameInfo").innerHTML = "";
-        //             whetherUserNameLegal = true;
-        //         }
-        //     }
-		// }
-		// xmlhttp.open("POST", "/query", true);
-		// xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-		// xmlhttp.send("userName=" + this.value);
         $.post("/query", "userName=" + this.value ,function(text) {
             if (text != "repeated") {
 					document.getElementById("userNameInfo").innerHTML = "该用户不存在！";
@@ -45,22 +29,15 @@
         var sendMassage = "";
         sendMassage += "userName=" + document.getElementById("userName").value;
         sendMassage += "&password=" + document.getElementById("password").value;
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function() {
-            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                var text = xmlhttp.responseText;
-                if (text == "loginsuccess") {
+        $.post("/loginquery", sendMassage, function(text) {
+            if (text == "loginsuccess") {
                     document.getElementById("loginPasswordInfo").innerHTML = "";
                     whetherPasswordCorrect = true;
                 } else {
                     whetherPasswordCorrect = false;
                     document.getElementById("loginPasswordInfo").innerHTML = "密码不正确";
                 }
-            }
-        }
-        xmlhttp.open("POST", "/loginquery", true);
-        xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        xmlhttp.send(sendMassage);
+        });
     }
     $("#userName").change();
     $("#password").change();
