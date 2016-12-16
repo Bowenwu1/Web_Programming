@@ -51,6 +51,7 @@
         $.cookie("userName", "");
         $.cookie("password", "");
     }
+    // forbidden submit of form
     $("#login").submit(function() {
         return false;
     });
