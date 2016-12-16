@@ -1,5 +1,5 @@
 var user = require("./User.js");
-
+var crypto = require('crypto');
 function Storage() {
 	var userList = new Array();
 	var MongoClient = require('mongodb').MongoClient,
@@ -15,6 +15,14 @@ function Storage() {
 			});
 			db.close();
 	})
+	function MD5Encrypt(info) {
+		var md5 = crypto.createHash('md5');
+		md5.update(info);
+		var result = md5.digest('hex');
+		console.log("Encrypt to : ");
+		console.log(result);
+		return result;
+	}
 	// private:
 	var insertUser = function(user) {
 		MongoClient.connect(dbUrl, function(err, db) {
@@ -22,6 +30,7 @@ function Storage() {
 			console.log("connected correctly to mongoDB");
 			console.log("ready to insert a user");
 			var collection = db.collection('signin');
+			user['password'] = MD5Encrypt(user['password']);
 			collection.insertMany([user], function(err, result) {
 				if (err)
 					console.log("insert user fail");
@@ -71,18 +80,20 @@ function Storage() {
 				return userList[x];
 		}	
 	}
-	this.queryUser = function(infomation) {
+	this.queryUser = function(information) {
 		// 检查是否所有均为合法属性
-		for (var keys in infomation) {
+		for (var keys in information) {
 			if (!whetherContainProperty(keys))
 				return;
 		}
+		if (information['password'])
+			information['password'] = MD5Encrypt(information['password']);
 		// 是否所有提供的属性都匹配
 		for (var i in userList) {
 			var flag = true;
-			for (var keys in infomation) {
-				if (infomation[keys] != userList[i][keys]) {
-					console.log(infomation[keys]);
+			for (var keys in information) {
+				if (information[keys] != userList[i][keys]) {
+					console.log(information[keys]);
 					console.log("!=");
 					console.log(userList[i][keys]);
 					flag = false;
