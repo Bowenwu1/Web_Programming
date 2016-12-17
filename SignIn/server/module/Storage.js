@@ -6,6 +6,10 @@ function Storage() {
 		assert = require('assert');
 	var dbUrl = "mongodb://localhost:27017/signin";
 	MongoClient.connect(dbUrl, function(err, db) {
+		if (err) {
+			console.log("can't connect to mongoDB!");
+			return;
+		}
 		console.log("connected correctly to mongoDB");
 		var collection = db.collection('signin');
 		collection.find({}).toArray(function(err, docs) {
