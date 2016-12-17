@@ -30,7 +30,10 @@ function Storage() {
 	// private:
 	var insertUser = function(user) {
 		MongoClient.connect(dbUrl, function(err, db) {
-			assert.equal(null, err);
+			if (err) {
+			console.log("can't connect to mongoDB!");
+			return;
+		}
 			console.log("connected correctly to mongoDB");
 			console.log("ready to insert a user");
 			var collection = db.collection('signin');
