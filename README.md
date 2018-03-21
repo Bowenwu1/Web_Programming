@@ -7,7 +7,7 @@ Modern Web Technology Learning
 
 ## 01-Grandma's Lemon Pie
 
-![](./01-Grandma's Lemon Pie/demo.png)
+![](./01-Grandma'sLemonPie/demo.png)
 
 使用的内容：基础的HTML和CSS
 
